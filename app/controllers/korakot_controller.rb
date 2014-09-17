@@ -45,7 +45,8 @@ class KorakotController < ApplicationController
   end
   def date_thai2date(s)
     # s in format 17 ก.ย. 2557
-    mh = {'ก.ย.'=>9}
+    mh = {'ม.ค.'=>1, 'ก.พ.'=>2, 'มี.ค.'=>3, 'เม.ย.'=>4, 'พ.ค.'=>5, 'มิ.ย.'=>6, 
+      'ก.ค.'=>7, 'ส.ค.'=>8, 'ก.ย.'=>9, 'ต.ค.'=>10, 'พ.ย.'=>11, 'ธ.ค.'=>12}
     ss= s.split(' ')
     month = mh[ss[1]]
     year = ss[2].to_i-543

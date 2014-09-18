@@ -16,7 +16,7 @@
   </tr>
   <% @trades.each do |trade| %>
     <tr>
-      <td><%= image_tag 'cross.png' %></td>
+      <td><%= link_to image_tag('cross.png'), trade, :data=> {confirm: "Are you sure?"}, :method=> :delete %></td>
       <td><%= trade.trade_on %></td>
       <td><%= trade.ins_buy %></td>
       <td><%= trade.ins_sell %></td>
@@ -29,7 +29,7 @@
       <td><%= trade.set_index %></td>
       <% vol = trade.ins_buy+trade.fin_buy+trade.for_buy+trade.ret_buy %>
       <td><%= vol %></td>
-      <td><%= trade.created_at %></td>
+      <td><%= trade.created_at.strftime('%c') %></td>
     </tr>
   <% end %>
 </table>

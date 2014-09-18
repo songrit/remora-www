@@ -3,20 +3,6 @@ class KorakotController < ApplicationController
     @trades = Trade.all.desc(:created_at)
   end
   def get_data
-    # url = "http://marketdata.set.or.th/mkt/investortype.do?language=th&country=TH"
-    # doc = Nokogiri::HTML(open(url).read)
-    # num = []
-    # tran_date = doc.css('strong')[1].text
-    # tran_on = tran_date[/[0-9]+.+[0-9]+/]
-    # data = doc.at_css('.background')
-    # data.css('td[align="right"]').each do |v|
-    #   vs = v.text[/[\-0-9,\.]+/]
-    #   num << string2f(vs)
-    # end
-    # url = "http://marketdata.set.or.th/mkt/marketsummary.do?language=th&country=TH"
-    # doc = Nokogiri::HTML(open(url).read)
-    # set_index = string2f(doc.css('tr:nth-child(8) td')[1].text)
-    # trade = Trade.test_string
     trade = Trade.get_data
     render :json=> trade.to_yaml
   end

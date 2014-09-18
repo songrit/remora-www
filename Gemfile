@@ -38,3 +38,5 @@ gem 'spring',        group: :development
 
 gem 'mongoid'
 gem 'nokogiri'
+gem 'rails_layout'
+gem 'bootstrap-sass'

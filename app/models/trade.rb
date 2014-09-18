@@ -30,8 +30,8 @@ class Trade
       num << self.new.string2f(vs)
     end
     url = "http://marketdata.set.or.th/mkt/marketsummary.do?language=th&country=TH"
-    set_index = self.new.string2f(doc.css('tr:nth-child(8) td')[1].text)
     doc = Nokogiri::HTML(open(url).read)
+    set_index = self.new.string2f(doc.css('tr:nth-child(8) td')[1].text)
     trade = Trade.create :trade_on=> self.new.date_thai2date(tran_on),
       :ins_buy => num[0], :ins_sell => num[2],
       :fin_buy => num[6], :fin_sell => num[8],

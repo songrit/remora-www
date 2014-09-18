@@ -4,7 +4,8 @@ class KorakotController < ApplicationController
   end
   def get_data
     trade = Trade.get_data
-    render :json=> trade.to_yaml
+    # render :json=> trade.to_yaml
+    redirect_to action: 'report'
   end
 
   # use for testing - get html from web and save to local file

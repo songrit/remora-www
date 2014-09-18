@@ -1,3 +1,6 @@
+<div id="get_data">
+  <%= link_to 'get data', action:'get_data' %>
+</div>
 <table style='width:80%; margin: auto;'>
   <tr>
     <th>&nbsp;</th>
@@ -18,18 +21,18 @@
     <tr>
       <td><%= link_to image_tag('cross.png'), trade, :data=> {confirm: "Are you sure?"}, :method=> :delete %></td>
       <td><%= trade.trade_on %></td>
-      <td><%= trade.ins_buy %></td>
-      <td><%= trade.ins_sell %></td>
-      <td><%= trade.fin_buy %></td>
-      <td><%= trade.fin_sell %></td>
-      <td><%= trade.for_buy %></td>
-      <td><%= trade.for_sell %></td>
-      <td><%= trade.ret_buy %></td>
-      <td><%= trade.ret_sell %></td>
-      <td><%= trade.set_index %></td>
+      <td class='num'><%= trade.ins_buy %></td>
+      <td class='num'><%= trade.ins_sell %></td>
+      <td class='num'><%= trade.fin_buy %></td>
+      <td class='num'><%= trade.fin_sell %></td>
+      <td class='num'><%= trade.for_buy %></td>
+      <td class='num'><%= trade.for_sell %></td>
+      <td class='num'><%= trade.ret_buy %></td>
+      <td class='num'><%= trade.ret_sell %></td>
+      <td class='num'><%= trade.set_index %></td>
       <% vol = trade.ins_buy+trade.fin_buy+trade.for_buy+trade.ret_buy %>
-      <td><%= vol %></td>
-      <td><%= trade.created_at.strftime('%c') %></td>
+      <td class='num'><%= number_with_precision(vol,precision:2, delimiter:',') %></td>
+      <td class='num'><%= trade.created_at.strftime('%c') %></td>
     </tr>
   <% end %>
 </table>

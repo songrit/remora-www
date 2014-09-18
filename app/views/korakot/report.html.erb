@@ -1,0 +1,35 @@
+<table style='width:80%; margin: auto;'>
+  <tr>
+    <th>&nbsp;</th>
+    <th>Date</th>
+    <th>Ins Buy</th>
+    <th>Ins Sell</th>
+    <th>Fin Buy</th>
+    <th>Fin Sell</th>
+    <th>For Buy</th>
+    <th>For Sell</th>
+    <th>Ret Buy</th>
+    <th>Ret Sell</th>
+    <th>SET</th>
+    <th>Volume</th>
+    <th>Created</th>
+  </tr>
+  <% @trades.each do |trade| %>
+    <tr>
+      <td><%= image_tag 'cross.png' %></td>
+      <td><%= trade.trade_on %></td>
+      <td><%= trade.ins_buy %></td>
+      <td><%= trade.ins_sell %></td>
+      <td><%= trade.fin_buy %></td>
+      <td><%= trade.fin_sell %></td>
+      <td><%= trade.for_buy %></td>
+      <td><%= trade.for_sell %></td>
+      <td><%= trade.ret_buy %></td>
+      <td><%= trade.ret_sell %></td>
+      <td><%= trade.set_index %></td>
+      <% vol = trade.ins_buy+trade.fin_buy+trade.for_buy+trade.ret_buy %>
+      <td><%= vol %></td>
+      <td><%= trade.created_at %></td>
+    </tr>
+  <% end %>
+</table>
